@@ -25,7 +25,7 @@ class QuestionProvider {
     static let shared = QuestionProvider()
     
     // This property is *private*, meaning that it can only be access(read&write) from within the class.
-    private let names = ["Aady Pillai", "Aarushi Agrawal", "Afees Tiamiyu", "Allison Husain", "Anand Chandra", "Anik Gupta", "Anita Shen", "Anjali Thakrar", "Anmol Parande", "Ashwin Aggarwal", "Ashwin Kumar", "Athena Leong", "Charles Yang", "Colin Zhou", "Divya Tadimeti", "DoHyun Cheon", "Francis Chalissery", "Geo Morales", "Ian Shen", "Imran Khaliq", "Izzie Lau", "James Jung", "Joey Hejna", "Juliet Kim", "Kanyes Thaker", "Karen Alarcon", "Katniss Lee", "Kayli Jiang", "Kiana Go", "Maggie Yi", "Matthew Locayo", "Max Emerling", "Melanie Cooray", "Michael Lin", "Neha Nagabothu", "Nicholas Wang", "Nikhar Arora", "Olivia Li", "Patrick Yin", "Paul Shao", "Rini Vasan", "Shaina Chen", "Shaurya Sanghvi", "Shomil Jain", "Shubha Jagannatha", "Simran Regmi", "Srujay Korlakunta", "Vaibhav Gattani", "Will Oakley", "Will Vavrik", "Yatin Agarwal", "Samuel Alber", "Sydney Karimi", "Abhishek Kattuparambil", "Kanu Grover", "Janvi Shah", "Michelle Kroll", "Kanav Mittal", "Oleg Bezrukavnikov", "Shannon Or", "Esha Palkar", "Nikki Suzani", "Dylan Hamuy", "Philip Kabranov", "Carol Li", "SangJun Lee", "Michelle Chang", "Angeline Lee", "Evan Ellis", "Jared Martin", "Nick Jiang", "Taylor Hodan", "Rikio Tsuyama-Dahlgren", "Evelyn Hu", "Max Wilcoxson",]
+    private let names = ["Aady Pillai", "Aarushi Agrawal", "Afees Tiamiyu", "Allison Husain", "Anand Chandra", "Anik Gupta", "Anita Shen", "Anjali Thakrar", "Anmol Parande", "Ashwin Aggarwal", "Ashwin Kumar", "Athena Leong", "Charles Yang", "Colin Zhou", "Divya Tadimeti", "DoHyun Cheon", "Francis Chalissery", "Geo Morales", "Ian Shen", "Imran Khaliq", "Izzie Lau", "James Jung", "Joey Hejna", "Juliet Kim", "Kanyes Thaker", "Karen Alarcon", "Katniss Lee", "Kayli Jiang", "Kiana Go", "Maggie Yi", "Matthew Locayo", "Max Emerling", "Melanie Cooray", "Michael Lin", "Neha Nagabothu", "Nicholas Wang", "Nikhar Arora", "Olivia Li", "Patrick Yin", "Paul Shao", "Rini Vasan", "Shaina Chen", "Shaurya Sanghvi", "Shomil Jain", "Shubha Jagannatha", "Simran Regmi", "Srujay Korlakunta", "Vaibhav Gattani", "Will Oakley", "Will Vavrik", "Yatin Agarwal", "Samuel Alber", "Sydney Karimi", "Abhishek Kattuparambil", "Kanu Grover", "Janvi Shah", "Michelle Kroll", "Kanav Mittal", "Oleg Bezrukavnikov", "Shannon Or", "Esha Palkar", "Nikki Suzani", "Dylan Hamuy", "Philip Kabranov", "Carol Li", "SangJun Lee", "Michelle Chang", "Angeline Lee", "Evan Ellis", "Jared Martin", "Nick Jiang", "Taylor Hodan", "Rikio Tsuyama-Dahlgren", "Evelyn Hu", "Max Wilcoxson", "Aayushi Jain","Anya Shah","Blake Cavedo", "Christine Zhang", "David Ko", "Jeffrey Yum", "Krishna Mandal", "Marco Monfiglio", "Melody Lai", "Mod Yensuan", "Mustafa Mirza", "Noah Yin", "Rohit Ravi", "Taiga Kitao"]
     
     // private(set) means the property is readonly from outside of the class.
     private(set) var namesToDisplay: [String]
@@ -39,8 +39,7 @@ class QuestionProvider {
     }
     
     /**
-     Return a question struct using names left in the names to display list. Return nil if there's no
-     more name to use, or if we couldn't find the image.
+     Return a question struct using names left in the names to display list. Return `nil` if there's no more name to use, or if we couldn't find the image.
      */
     func nextQuestion() -> Question? {
         if let name = namesToDisplay.popLast(), let image = UIImage(named: name.lowercased().replacingOccurrences(of: " ", with: "")) {
