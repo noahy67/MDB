@@ -9,4 +9,12 @@ import UIKit
 
 class SFSCollectionCell: UICollectionViewCell {
     // TODO: Cell
+    // Image View, Title View, Initializer
+    
+    //        DONT FORGET TO DO THIS FOR EVERY VIEW
+    //        label.translatesAutoresizingMaskIntoConstraints = false
+    static let reuseIdentifier = String
+    var symbol: SFSymbol? {
+        
+    }
 }

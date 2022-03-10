@@ -31,6 +31,7 @@ class SFSCollectionVC: UIViewController {
         collectionView.allowsMultipleSelection = false
         
         collectionView.dataSource = self
+        // both data source and delegate are part of the delegate design, once you assign it UICollectionViewDelegateFlowLayout will be active
         collectionView.delegate = self
     }
 }
@@ -49,6 +50,8 @@ extension SFSCollectionVC: UICollectionViewDataSource {
 }
 
 extension SFSCollectionVC: UICollectionViewDelegateFlowLayout {
+    
+    // must implement this function so the cell sizing doesn't go back to default
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 80, height: 100)
     }
@@ -64,6 +67,7 @@ extension SFSCollectionVC: UICollectionViewDelegateFlowLayout {
         }
     }
     
+    // Callback function you have to implement for when you click on the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let symbol = SymbolProvider.symbols[indexPath.item]
         print("Selected \(symbol.name)")

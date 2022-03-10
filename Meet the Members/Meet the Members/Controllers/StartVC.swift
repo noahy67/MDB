@@ -44,7 +44,7 @@ class StartVC: UIViewController {
         
         button.setTitle("Start", for: .normal)
         
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         
         // MARK: STEP 1: UIButton Customization
         // Action Items:
@@ -57,7 +57,10 @@ class StartVC: UIViewController {
         // where you will find all the available APIs.
         
         // MARK: >> Your Code Here <<
-        
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 15
+        button.layer.borderWidth = 5
+        button.layer.borderColor = .init(red: 102/255, green: 102/255, blue: 255/255, alpha: 1.0)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -112,9 +115,18 @@ class StartVC: UIViewController {
         ])
         
         // MARK: >> Your Code Here <<
+        view.addSubview(startButton)
         
         NSLayoutConstraint.activate([
             // MARK: >> Your Code Here <<
+            startButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 360),
+            
+            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -360),
+            
+            startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+
+            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
+            
         ])
         
         
