@@ -7,6 +7,7 @@
 
 import UIKit
 import NotificationBannerSwift
+import SwiftUI
 
 class SigninVC: UIViewController {
     
@@ -147,6 +148,26 @@ class SigninVC: UIViewController {
         }
         
         /* TODO: Hackshop */
+        AuthManager.shared.signIn(withEmail: email, password: password) { result in
+            switch result {
+                // catching associated object and assigning it to a local name (let user)
+            case .success(let user):
+                guard let window = self.view.window else { return }
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+                window.rootViewController = vc
+                let options: UIView.AnimationOptions = .transitionCrossDissolve
+                let duration: TimeInterval = 0.3
+                UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)
+                
+            case .failure(let error):
+                switch error {
+                case .userNotFound:
+                    self.showErrorBanner(withTitle: "User not found", subtitle: "Please check your email address")
+                default:
+                    self.showErrorBanner(withTitle: "User not found", subtitle: "Please check your email address")
+                }
+            }
+        }
     }
     
     @objc private func didTapSignUp(_ sender: UIButton) {
